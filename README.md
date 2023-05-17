@@ -1,2 +1,11 @@
-# simple-js-app
- Achievement 1
+#  Achievement 1 Project
+
+## Project objective
+To build a small web application with HTML, CSS, and JavaScript that loads
+data from an external API and enables the viewing of data points in detail.
+
+
+    Project description
+    How to get the project running
+    Project dependencies (e.g., JavaScript version, ESLint rules)
+    Which API the project uses
