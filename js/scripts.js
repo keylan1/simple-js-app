@@ -15,3 +15,9 @@ let pokemonList = [
     types: ['dragon', 'flying']
   },
 ];
+
+/* looping through pokemonList to print name and height to the DOM using template literals */
+
+for (let i = 0; pokemonList[i]; i++) {
+  document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height})</p>`);
+}
