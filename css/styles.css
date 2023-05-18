@@ -22,3 +22,14 @@ p {
   font-size: var(--text-size);
   font-weight: 700;
 }
+
+/* RESPONSIVE BREAKPOINTS */
+@media all and (max-width: 320px) {}
+
+@media all and (max-width: 480px) {}
+
+@media all and (max-width: 768px) {}
+
+@media all and (max-width: 992px) {}
+
+@media all and (max-width: 1200px) {}
