@@ -1,0 +1,24 @@
+:root {
+  --text-font: tajawal, sans-serif;
+  --background-color: #fcfcfc;
+  --text-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin-left: 50px;
+  margin-top: 50px;
+  background-color: var(--background-color);
+  font-family: var(--text-font);
+}
+
+p {
+  font-size: var(--text-size);
+  font-weight: 700;
+}
