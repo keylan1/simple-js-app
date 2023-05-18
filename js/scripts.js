@@ -17,7 +17,12 @@ let pokemonList = [
 ];
 
 /* looping through pokemonList to print name and height to the DOM using template literals */
+// If pokemon.height is larger than 1.5, 'wow that's big' is added.
 
 for (let i = 0; pokemonList[i]; i++) {
-  document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height})</p>`);
+  if (pokemonList[i].height > 1.5) {
+    document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height}) - Wow that\'s big!</p>`);
+  } else {
+    document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height})</p>`);
+  }
 }
