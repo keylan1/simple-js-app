@@ -1,6 +1,6 @@
 :root {
   --text-font: tajawal, sans-serif;
-  --background-color: #fcfcfc;
+  --background-color: #e7dfe9;
   --text-size: 16px;
 }
 
@@ -18,10 +18,28 @@ body {
   font-family: var(--text-font);
 }
 
+h1 {
+  text-align: center;
+  padding: 20px;
+}
+
 p {
   font-size: var(--text-size);
   font-weight: 700;
 }
+
+.pokemon__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.pokemon__list--item {
+  list-style-type: none;
+}
+
+
 
 /* RESPONSIVE BREAKPOINTS */
 @media all and (max-width: 320px) {}
