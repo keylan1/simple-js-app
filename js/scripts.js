@@ -20,7 +20,15 @@ let pokemonRepository = (function () {
   ];
 
   function add(item) {
-    return pokemonList.push(item); //function that adds item to pokemonList
+    if (typeof item === "object") {
+      if (Object.keys === item.keys) {
+        return pokemonList.push(item); //function that adds item to pokemonList
+      } else {
+        alert("Input error, keys do not match, please try again.");
+      }
+    } else {
+      alert("Input error, not an object, please try again.");
+    }
   }
 
   function getAll() {
