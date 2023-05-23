@@ -1,12 +1,20 @@
 :root {
   --text-font: tajawal, sans-serif;
   --background-color: #f0efe9;
-  --text-size: 16px;
+  --text-size: 20px;
   --text-color: rgb(45, 44, 44);
   --primary-color: #96799D;
   --secondary-color: #C3D9A6;
   --tertiary-color: #EEE7B5;
   --border-color: #FFFCEA;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -26,6 +34,7 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 100px;
   padding: 20px;
   color: var(--primary-color);
 }
@@ -35,6 +44,29 @@ p {
   font-weight: 700;
 }
 
+ul {
+  list-style-type: none;
+
+}
+.pokemon {
+  display: flex;
+  justify-content: center;
+
+}
+
+.pokemon-button {
+  padding: 15px;
+  margin: 10px;
+  font-family: var(--text-font);
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: var(--text-size);
+  width: 250px;
+  text-align: left;
+  background-color: var(--tertiary-color);
+  border-radius: 5px;
+  box-shadow: inset;
+}
 
 /* RESPONSIVE BREAKPOINTS */
 @media all and (max-width: 320px) {}

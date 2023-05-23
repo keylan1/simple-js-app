@@ -51,14 +51,20 @@ pokemonRepository.getAll().forEach((pokemon) => {
   let listItem = document.createElement('li');
   let button = document.createElement('button');
   button.innerText = pokemon.name;
+  button.classList.add('pokemon-button');
 
+  listItem.appendChild(button);
+  list.appendChild(listItem);
+
+});
+
+document.write("</ul></div>");
+
+/*
   if (pokemon.height > 1.5) {
     document.write(
       `<li>${pokemon.name} (height: ${pokemon.height}) - Wow, that\'s big!</p>`
     );
   } else {
     document.write(`<li>${pokemon.name} (height: ${pokemon.height})</p>`);
-  }
-});
-
-document.write("</ul></div>");
+  }*/
