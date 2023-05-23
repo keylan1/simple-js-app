@@ -18,14 +18,10 @@ let pokemonRepository = (function () {
   ];
 
   function add(item) {
-    if (typeof item === "object") {
-      if (Object.keys === item.keys) {
+    if (typeof item === "object" && "name" in item && "height" in item && "types" in item) {
         return pokemonList.push(item); //function that adds item to pokemonList
-      } else {
-        alert("Input error, keys do not match, please try again.");
-      }
     } else {
-      alert("Input error, not an object, please try again.");
+      alert("Input error, wrong properties or not an object, please try again.");
     }
   }
 
@@ -57,3 +53,15 @@ let pokemonRepository = (function () {
 pokemonRepository.getAll().forEach((pokemon) => {
 pokemonRepository.addListItem(pokemon);
 });
+
+/*  function add(item) {
+    if (typeof item === "object") {
+      if (Object.keys(pokemonList) == Object.keys(item)) {
+        return pokemonList.push(item); //function that adds item to pokemonList
+      } else {
+        alert("Input error, keys do not match, please try again.");
+      }
+    } else {
+      alert("Input error, not an object, please try again.");
+    }
+  }*/
