@@ -1,7 +1,11 @@
 :root {
   --text-font: tajawal, sans-serif;
-  --background-color: #ece8ed;
+  --background-color: #f0efe9;
   --text-size: 16px;
+  --text-color: rgb(45, 44, 44);
+  --primary-color: #96799D;
+  --secondary-color: #C3D9A6;
+  --tertiary-color: #EEE7B5;
 }
 
 html,
@@ -16,11 +20,13 @@ body {
   margin-top: 50px;
   background-color: var(--background-color);
   font-family: var(--text-font);
+  color: var(--text-color);
 }
 
 h1 {
   text-align: center;
   padding: 20px;
+  color: var(--primary-color);
 }
 
 p {
