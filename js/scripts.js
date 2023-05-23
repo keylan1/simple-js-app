@@ -33,6 +33,17 @@ let pokemonRepository = (function () {
     return pokemonList; //function that prints pokemonList
   }
 
+  function addListItem(pokemon) {
+    let list = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('pokemon-button');
+  
+    listItem.appendChild(button);
+    list.appendChild(listItem);
+  }
+
   return {
     //return value of pokemonRepository
     add: add,
@@ -68,3 +79,5 @@ document.write("</ul></div>");
   } else {
     document.write(`<li>${pokemon.name} (height: ${pokemon.height})</p>`);
   }*/
+
+
