@@ -1,21 +1,19 @@
-
 let pokemonRepository = (function () {
-
   let pokemonList = [
     {
-      name: 'Charizard',
+      name: "Charizard",
       height: 1.7,
-      types: ['fire', 'flying']
+      types: ["fire", "flying"],
     },
     {
-      name: 'Lucario',
+      name: "Lucario",
       height: 1.2,
-      types: ['steel', 'fighting']
+      types: ["steel", "fighting"],
     },
     {
-      name: 'Altaria',
+      name: "Altaria",
       height: 1.1,
-      types: ['dragon', 'flying']
+      types: ["dragon", "flying"],
     },
   ];
 
@@ -35,23 +33,27 @@ let pokemonRepository = (function () {
     return pokemonList; //function that prints pokemonList
   }
 
-  return { //return value of pokemonRepository
+  return {
+    //return value of pokemonRepository
     add: add,
-    getAll: getAll
-  }
-
+    getAll: getAll,
+  };
 })();
 
 /* Using a forEach() loop instead of for loop to iterate over every Pokémon in the array) */
 
-document.write('<div style="display: flex; justify-content: center;"><ul style="list-style-type: none;">');
+document.write(
+  '<div style="display: flex; justify-content: center;"><ul style="list-style-type: none;">'
+);
 
-pokemonRepository.getAll().forEach(pokemon => {
+pokemonRepository.getAll().forEach((pokemon) => {
   if (pokemon.height > 1.5) {
-    document.write(`<li>${pokemon.name} (height: ${pokemon.height}) - Wow, that\'s big!</p>`);
+    document.write(
+      `<li>${pokemon.name} (height: ${pokemon.height}) - Wow, that\'s big!</p>`
+    );
   } else {
     document.write(`<li>${pokemon.name} (height: ${pokemon.height})</p>`);
   }
 });
 
-document.write('</ul></div>');
+document.write("</ul></div>");
