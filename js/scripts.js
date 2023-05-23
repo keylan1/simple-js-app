@@ -48,36 +48,12 @@ let pokemonRepository = (function () {
     //return value of pokemonRepository
     add: add,
     getAll: getAll,
+    addListItem: addListItem
   };
 })();
 
-/* Using a forEach() loop instead of for loop to iterate over every Pokémon in the array) */
-
-document.write(
-  '<div style="display: flex; justify-content: center;"><ul style="list-style-type: none;">'
-);
+/* Using a forEach() loop to iterate over every Pokémon in the array) */
 
 pokemonRepository.getAll().forEach((pokemon) => {
-  let list = document.querySelector('.pokemon-list');
-  let listItem = document.createElement('li');
-  let button = document.createElement('button');
-  button.innerText = pokemon.name;
-  button.classList.add('pokemon-button');
-
-  listItem.appendChild(button);
-  list.appendChild(listItem);
-
+pokemonRepository.addListItem(pokemon);
 });
-
-document.write("</ul></div>");
-
-/*
-  if (pokemon.height > 1.5) {
-    document.write(
-      `<li>${pokemon.name} (height: ${pokemon.height}) - Wow, that\'s big!</p>`
-    );
-  } else {
-    document.write(`<li>${pokemon.name} (height: ${pokemon.height})</p>`);
-  }*/
-
-
