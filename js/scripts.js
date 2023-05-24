@@ -1,24 +1,9 @@
 let pokemonRepository = (function () {
-  let pokemonList = [
-    {
-      name: "Charizard",
-      height: 1.7,
-      types: ["fire", "flying"],
-    },
-    {
-      name: "Lucario",
-      height: 1.2,
-      types: ["steel", "fighting"],
-    },
-    {
-      name: "Altaria",
-      height: 1.1,
-      types: ["dragon", "flying"],
-    },
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function add(item) {
-    if (typeof item === "object" && "name" in item && "height" in item && "types" in item) {
+    if (typeof item === "object" && "name" in item && "detailsUrl" in item) {
         return pokemonList.push(item); //function that adds item to pokemonList
     } else {
       alert("Input error, wrong properties or not an object, please try again.");
@@ -30,7 +15,8 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    console.log(pokemon);
+    loadDetails(pokemon)
+    console.log(loadDetails);
   }
 
   function addListItem(pokemon) {
@@ -46,16 +32,35 @@ let pokemonRepository = (function () {
     });
   }
 
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+        console.log(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
   return {
     //return value of pokemonRepository
     add: add,
     getAll: getAll,
+    loadList: loadList,
     addListItem: addListItem
   };
 })();
 
 /* Using a forEach() loop to iterate over every Pokémon in the array) */
-
-pokemonRepository.getAll().forEach((pokemon) => {
-pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach((pokemon)=>{
+    pokemonRepository.addListItem(pokemon);
+  });
 });
