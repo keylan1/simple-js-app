@@ -59,15 +59,3 @@ let pokemonRepository = (function () {
 pokemonRepository.getAll().forEach((pokemon) => {
 pokemonRepository.addListItem(pokemon);
 });
-
-/*  function add(item) {
-    if (typeof item === "object") {
-      if (Object.keys(pokemonList) == Object.keys(item)) {
-        return pokemonList.push(item); //function that adds item to pokemonList
-      } else {
-        alert("Input error, keys do not match, please try again.");
-      }
-    } else {
-      alert("Input error, not an object, please try again.");
-    }
-  }*/
