@@ -22,7 +22,6 @@ html,
 body {
   height: 100%;
   min-height: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -84,23 +83,30 @@ ul {
   overflow: auto; 
   display: grid;
   text-align: center;
+  background-color: var(--background-color);
 }
 
 .modal {
-  margin: auto;
-  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   background: #fff;
   padding: 15px;
   width: 100%;
   max-width: 700px;
   text-align: left;
+  border-style: solid;
+  border-color: var(--primary-color);
+  border-radius: 15px;
+  background-color: var(--tertiary-color);
 }
 
 
 .modal-close {
   float: right;
-  -webkit-appearance: none;
   border: 0;
   background: none;
   color: #777;
@@ -113,13 +119,21 @@ ul {
 
 .modal p {
   margin-bottom: 0;
+  text-align: center;
+}
+
+.modal img {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+
 }
 
 #modal-container {
   display: none;
 }
 
-#modal-div.is-visible {
+#modal-container.is-visible {
   display: block;
 }
 

@@ -1,8 +1,8 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  let modalContainer = document.createElement('div');
-  modalContainer.id = 'modal-container';
+  let modalContainer = document.querySelector('#modal-container');
+
 
   function add(item) {
     if (typeof item === "object" && "name" in item && "detailsUrl" in item) {
@@ -71,7 +71,11 @@ let pokemonRepository = (function () {
 
   function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
-      modalContainer.classList.add('modal');
+      modalContainer.classList.add('is-visible');
+      let modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      modalContainer.innerHTML = '';
 
       let titleElement = document.createElement('h1');
       titleElement.innerText = pokemon.name;
@@ -93,8 +97,6 @@ let pokemonRepository = (function () {
       modal.appendChild(imgElement);
       modalContainer.appendChild(modal);
 
-      modalContainer.classList.add('is-visible');
-
     });
   }
 
@@ -102,20 +104,35 @@ let pokemonRepository = (function () {
     modalContainer.classList.remove('is-visible');
   }
 
-  return {
-    //return value of pokemonRepository
-    add: add,
-    getAll: getAll,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    addListItem: addListItem,
-    showDetails: showDetails,
-  };
-})();
-
-/* Using a forEach() loop to iterate over every Pokémon in the array) */
-pokemonRepository.loadList().then(function () {
-  pokemonRepository.getAll().forEach((pokemon) => {
-    pokemonRepository.addListItem(pokemon);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();  
+    }
   });
-});
+
+  modalContainer.addEventListener('click', (e) => {
+    // Since this is also triggered when clicking INSIDE the modal
+    // We only want to close if the user clicks directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
+
+    return {
+      //return value of pokemonRepository
+      add: add,
+      getAll: getAll,
+      loadList: loadList,
+      loadDetails: loadDetails,
+      addListItem: addListItem,
+      showDetails: showDetails,
+    };
+  })();
+
+  /* Using a forEach() loop to iterate over every Pokémon in the array) */
+  pokemonRepository.loadList().then(function () {
+    pokemonRepository.getAll().forEach((pokemon) => {
+      pokemonRepository.addListItem(pokemon);
+    });
+  });
