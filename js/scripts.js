@@ -18,6 +18,8 @@ let pokemonRepository = (function () {
     return pokemonList; //function that prints pokemonList
   }
 
+  //tells the DOM how to structure and initially display the information in the pokemonList we want to show.
+  //the button calls the showDetails for the modal.
   function addListItem(pokemon) {
     let list = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
@@ -32,6 +34,7 @@ let pokemonRepository = (function () {
     });
   }
 
+  //shows the list of pokemon to click on for further ino
   function loadList() {
     return fetch(apiUrl)
       .then(function (response) {
@@ -52,7 +55,8 @@ let pokemonRepository = (function () {
       });
   }
 
-  function loadDetails(item) {
+  //loads the details we then see in the modal
+  function loadDetails(item) { 
     let url = item.detailsUrl; //comes from the detailsUrl in our pokemon item (loadList)
     return fetch(url)
       .then(function (response) {
@@ -75,7 +79,7 @@ let pokemonRepository = (function () {
       let modal = document.createElement('div');
       modal.classList.add('modal');
 
-      modalContainer.innerHTML = '';
+      modalContainer.innerHTML = ''; //necessary otherwise modals staple
 
       let titleElement = document.createElement('h1');
       titleElement.innerText = pokemon.name;
@@ -100,19 +104,20 @@ let pokemonRepository = (function () {
     });
   }
 
+  //hides the modal by reversing the .add in showDetails
   function hideModal() {
     modalContainer.classList.remove('is-visible');
   }
 
+ //applies to the window, closes when esc is pressed 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
       hideModal();  
     }
   });
 
+  //closes modal when clicking on container, not modal
   modalContainer.addEventListener('click', (e) => {
-    // Since this is also triggered when clicking INSIDE the modal
-    // We only want to close if the user clicks directly on the overlay
     let target = e.target;
     if (target === modalContainer) {
       hideModal();
@@ -130,7 +135,8 @@ let pokemonRepository = (function () {
     };
   })();
 
-  /* Using a forEach() loop to iterate over every Pokémon in the array) */
+  /* Using a forEach() loop to iterate over every Pokémon in the array). Without this,
+  nothing is displayed on the screen*/
   pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach((pokemon) => {
       pokemonRepository.addListItem(pokemon);

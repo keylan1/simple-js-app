@@ -96,7 +96,8 @@ ul {
   background: #fff;
   padding: 15px;
   width: 100%;
-  max-width: 700px;
+  max-width: 400px;
+  max-height: 400px;
   text-align: left;
   border-style: solid;
   border-color: var(--primary-color);
@@ -135,14 +136,96 @@ ul {
 
 #modal-container.is-visible {
   display: block;
+
 }
 
 /* RESPONSIVE BREAKPOINTS */
-@media all and (max-width: 320px) {}
+@media all and (max-width: 320px) {
 
-@media all and (max-width: 480px) {}
+  p {
+    font-size: 20px;
+  }
 
-@media all and (max-width: 768px) {}
+  h1 {
+    font-size: 30px;
+  }
+
+  .pokemon-button {
+    font-size: 20px;
+    width: 250px;
+  }
+
+  #modal-container {
+    background-color: var(--text-color);
+  }
+  .modal h1 {
+    font-size: 20px;
+  }
+  .modal {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 250px;
+  }
+
+  .modal-close {
+    font-size: 12px;
+  }
+
+  .modal p {
+    font-size: 16px;
+    font-weight: 400; 
+  }
+
+  .modal img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
+
+@media all and (min-width: 321px) and (max-width: 480px) {
+  p {
+    font-size: 22px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+
+  /*.pokemon__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }*/
+
+  #modal-container {
+    background-color: var(--secondary-color);
+  }
+  .modal h1 {
+    font-size: 22px;
+  }
+  .modal {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 250px;
+  }
+
+  .modal-close {
+    font-size: 14px;
+  }
+
+  .modal p {
+    font-size: 18px;
+    font-weight: 400; 
+  }
+
+  .modal img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
+
+@media all and (min-width: 481px) and (max-width: 768px) {}
 
 @media all and (max-width: 992px) {}
 
