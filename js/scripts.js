@@ -128,7 +128,7 @@ let pokemonRepository = (function () {
     });
 
     if (foundPokemon) {
-      const offsetTop = foundPokemon.offsetTop - 50;
+      const offsetTop = foundPokemon.offsetTop - 100;
       window.scrollTo({ top: offsetTop, behavior: "smooth" });
 
       // Add highlight to the found Pokemon button
