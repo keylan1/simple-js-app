@@ -18,4 +18,4 @@ To build the  site the following was used:
 
 The API used can be found at: https://pokeapi.co/
 
-The site can be visited here: 
+The site can be visited here: https://keylan1.github.io/simple-js-app/
