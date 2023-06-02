@@ -28,6 +28,7 @@ let pokemonRepository = (function () {
     button.classList.add("pokemon-button", "btn", "btn-secondary");
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#pokemonModal");
+    button.setAttribute("data-pokemon", pokemon.name);
     listItem.appendChild(button);
     list.appendChild(listItem);
     button.addEventListener("click", function () {
@@ -98,6 +99,45 @@ let pokemonRepository = (function () {
       modalBody.appendChild(imgElement);
     });
   }
+
+  function search(event) {
+    event.preventDefault();
+  
+    const searchInput = document.getElementById('search-input');
+    const searchTerm = searchInput.value.toLowerCase();
+  
+    const pokemonListItems = document.querySelectorAll('.pokemon-list .list-group-item');
+  
+    let foundPokemon = null;
+  
+    pokemonListItems.forEach(listItem => {
+      const pokemonButton = listItem.querySelector('.pokemon-button');
+      const pokemonName = pokemonButton.getAttribute('data-pokemon');
+  
+      if (pokemonName.toLowerCase() === searchTerm) {
+        foundPokemon = listItem;
+      }
+    });
+  
+    pokemonListItems.forEach(listItem => {
+      const pokemonButton = listItem.querySelector('.pokemon-button');
+      pokemonButton.classList.remove('highlight');
+    });
+  
+    if (foundPokemon) {
+      const offsetTop = foundPokemon.offsetTop - 50;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+  
+      // Add highlight to the found Pokemon button
+      const foundPokemonButton = foundPokemon.querySelector('.pokemon-button');
+      foundPokemonButton.classList.add('highlight');
+    }
+  
+    searchInput.value = '';
+  }
+  
+  const searchButton = document.getElementById('search-button');
+searchButton.addEventListener('click', search);
 
 
   return {
