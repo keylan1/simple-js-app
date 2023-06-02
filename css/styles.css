@@ -8,6 +8,8 @@
   --tertiary-color: #f0efe9;
   --border-color: #FFFCEA;
   --button-color: #FFFCE2;
+  --modal-background: #d2e8e5;
+  --search-background: 
 }
 
 *,
@@ -61,7 +63,7 @@ p {
 }
 
 li.list-group-item {
-  background-color: rgb(210, 232, 229);
+  background-color: var(--modal-background);
   padding: 0;
   margin: 5px;
   width: 262px;
@@ -75,7 +77,7 @@ li.list-group-item {
 }
 
 .highlight {
-  background-color: rgb(210, 232, 229);
+  background-color: var(--modal-background);
 }
 
 .main-container {
@@ -83,7 +85,7 @@ li.list-group-item {
 }
 
 .navbar-custom {
-  background-color: #96799D;
+  background-color: var(--primary-color);
 }
 
 #search-button {
@@ -99,7 +101,7 @@ li.list-group-item {
 
 .modal-header,
 .modal-footer {
-  background-color: rgb(210, 232, 229);
+  background-color: var(--modal-background);
 }
 
 .modal-title,
@@ -114,31 +116,6 @@ li.list-group-item {
 }
 
 /* RESPONSIVE BREAKPOINTS */
-/*
-@media (max-width: 320px) {
-  .pokemon-list {
-    grid-template-columns: 1fr;
-  }
-
-  .modal-title>h1 {
-    font-size: 30px;
-  }
-
-  .modal-body {
-    padding: 10px;
-  }
-
-  .modal-body>p {
-    font-size: 16px;
-    margin: 0px;
-    font-weight: 400;
-  }
-
-  .modal-body>img {
-    width: 50%;
-    height: 50%;
-  }
-}*/
 
 @media (max-width: 576px) {
   .pokemon-list {
@@ -155,6 +132,7 @@ li.list-group-item {
   }
 
   .modal-body>p {
+    font-size: 16px;
     font-weight: 500;
     margin: 0;
   }
